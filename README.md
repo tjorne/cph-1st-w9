@@ -45,8 +45,8 @@ So create a method called printLessFrequentLetter().
 again - bonus for printing top 10. 
 
 
-[NOT TO BE HANDED IN] 
-## Task 5: 
+
+## Task 5: [NOT TO BE HANDED IN] 
 
 Get started on your "Cheat-sheet-project" (Exam preperation) as we talked about yesterday. 
 
