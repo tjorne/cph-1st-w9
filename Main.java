@@ -1,76 +1,70 @@
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.Scanner;
 
-public class Main {
+public class Main
+{
     static Scanner scan;
-    private static String[][] text = new String[12][1];
+    private static String[] text;
 
-    public static void main(String[] args) throws FileNotFoundException {
-
+    public static void main(String[] args) throws FileNotFoundException
+    {
         File file = new File("data.txt");
         scan = new Scanner(file);
-        int i = 0;
-        while (scan.hasNextLine()) {
-            text[i] = scan.nextLine().split(" ");
-           
-            i++;
+
+        String inputFromFile = "";
+
+        while (scan.hasNextLine())                                // checks if theres more lines in the file
+        {
+            inputFromFile += scan.nextLine();                     // adds each line to the inputFromFile string.
         }
 
-        // todo: print alle ord der starter med det der sendes med som argument,
+        text = inputFromFile.split(" ");                    // Creates and array of strings, where each element is a single word from the file.
+        System.out.println(text.length);
+
         printWordsStartingWith("Ø");
-        //todo: print alle ord der har præcis det antal bogstaver der sendes med som argument (inkluderer IKKE tal og tegnene '.' og ',')
+
         printWordsOfLength(3);
-     
 
-     //test dine metoder ved at kalde dem her:
 
-        
+        //test dine metoder ved at kalde dem her:
 
 
     }
 
-    private static void printWordsOfLength(int l) {
+    private static void printWordsOfLength(int l)
+    {
         boolean wordisvalid = true;
 
-        for (int i = 0; i < text.length; i++) {
-            for (String s : text[i]) {
-                if (s.length() == l) {
-                    if (s.contains(",") || s.contains(".")) {
-                        wordisvalid = false;
-                    }
-                     /*for (int j = 0; j < s.length(); j++) {
-                         char c = s.charAt(j);
-                         if(c == '.' || c == ','){
-                             wordisvalid = false;
-                         }
-                     }*/
-                    if (wordisvalid) {
-                        System.out.println(s);
-                    }
-
+        for (String s : text)
+        {
+            if (s.length() == l)
+            {
+                if (s.contains(",") || s.contains("."))
+                {
+                    wordisvalid = false;
                 }
-            }
-        }
 
-    }
-
-    private static void printWordsStartingWith(String pattern) {
-
-        for (int i = 0; i < text.length; i++) {
-            for (String s : text[i]) {
-                if (s.startsWith(pattern) || s.startsWith(pattern.toLowerCase())) {
+                if (wordisvalid)
+                {
                     System.out.println(s);
                 }
             }
-
         }
+    }
 
+    private static void printWordsStartingWith(String pattern)
+    {
+        for (String s : text) // for each word in text
+        {
+            if (s.startsWith(pattern) || s.startsWith(pattern.toLowerCase()))
+            {
+                System.out.println(s);
+            }
+        }
     }
 
     //skriv dine metoder herunder:
-
 
 
 }
