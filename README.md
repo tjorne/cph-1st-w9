@@ -1,53 +1,65 @@
 # cph-1st-w9
 
-g# uge9_exercises
-Exercises for week 9
+Today's tasks will require you to copy the code and data in this repository. You can do this two ways (2 is probably the easiest): 
+1. by downloading this repository, unzipping it and then open the directory in IntelliJ using the "Open Project" option. This might require you to set up SDK, which the red/yellow light bulb can help you with if you move your cursor to the main method declaration. 
 
-Opgaverne tager udgangspunkt i StringWorks projektet som vi startede op i tirsdagens lektion. Her loadede vi noget tekst og lagde det ind i en datafil.
-Herefter byggede vi nogle metoder der foretog forskellige analyser på teksten. Så start med at finde projektet frem hente det ned fra dette repository.
+2. Copy the content of the main.java and replace your own main.java in your already working project. Download/Copy the data.txt file and place it in the project root directory (next to the src folder). 
 
-I to første opgaver skal du fortsætte med at analysere samme tekst. I de to sidste skal du tilføje metoder som bare arbejder med en enkelt streng som du sender med som argument.
-
-Som altid, fortvivl ikke hvis en opgave er for svær. Selvom  jeg har prøvet at sørge for at nogle af opgaverne er nemme, skal der ikke så meget til før det bliver kompliceret.
-vær aldrig for stolt til at bede om hjælp - heri lægger det meste af din læring - og tutorerne er til for det samme ;)
-
-Det er ikke nødvendigvis den letteste opgave først og den sværeste sidst i dette sæt.
-
-
-## Task 1 - Print alle ord der har dobbeltkonsonant i sig.  
-        Til denne opgave skal du fortsætte i StringWorks projektet, hvor vi har loadet noget tekst fra wikipedia ind og lagt linierne i et dobbelt array (text[][])
-        Du skal derfor følge samme fremgangsmåde med forloops, som vi anvendte da vi løste de første par opgaver i projektet. 
-        Denne opgave kan givetvis løses med regular expression, men det er ikke formålet, så prøv at løse den 'manuelt.
+Test that the main runs, and prints the number 333 followed by the output of the two methods: 
+        printWordsStartingWith("Ø");
+        printWordsOfLength(3);
         
-    1.a Lav en ny metode printWordsWithDoubleConsonant() 
-    1.b Metoden skal gennemløb hver linie og hvert ord i hver linie
-    1.c Tjek om den enkelte karakter i hvert ord er identisk med forrige karakter. Hint: Det kan være en god ide FØRST at tjekke bogstavet er en konsonant.
-        Det anbefales her at du skriver en separat metode, der alene tager sig af dét. Denne metode skal både sikre at karakteren hverken er en vokal eller et tal (hint: Character.isDigit(c))
-    1.d Kald metoden fra main.
+Now you must add more methods 
 
 
-## Task 2. - Print den længste sætning i teksten. 
-         I denne opgave vil du få brug for at læse filen ind igen, så du kan splitte på .(punktum) istedet for " " (mellemrum)
+## Task 1:
+Create a method called printLongestWord() that prints the longest of all the words in the text variable. 
 
-    1.a Kopier linie 12 til 19 ind i metoden (eller de linier der henter filen ind, scanner og splitter den i et while loop). 
-    1.b På linien hvor der laves et split array, skal du ændre så du istedet bruger denne kommando til at splitte:   String[] splitarray = scan.nextLine().split("\\. ");
-    1.c Hold styr på mens du løber gennem teksten om sætningen er længere end den sætning der pt. er længst.
-    1.d Kald metoden fra main
-    
-    
-## Task 3. - print en delmængde (substring) af et ord 
-        I denne opgave skal du brug substring metoden, og du skal fange StringIndexOutOfBounds exeption som Java vil smide i tilfælde hvor metoden bliver kaldt med for høje tal.
+Hints:
+- Have it loop through each word in the ```text``` variable (see implementation of the two methods mentioned above for reference). 
+- Have a counter that counts the length of each word and resets afterwards. 
+- Have a String variable called "longestWord", that has its value overwritten in case of a longer word found. 
+ 
 
-     1.a Lav en metode, printPartOfWord(), med tre parametre: 1. parameter er ordet, 2. parameter er index for det bogstav delmængden starter med og 3.  parameter er længden på delmængden
-     Ex: argumenterne "Købehavn", 1 og 4  skal give outputtet "øben". 
-     1.b Sørg for at metoden kan håndtere at blive kaldt med tal-argumenter som er for høje. Brug en try catch hvor du håndterer undtagelsen StringIndexOutOfBounds.
-     1.c: I catch blokken skal du tjekke om argument 2 er lavere end ordets længe. Hvis det er tilfældet, skal delmængden starte ved argument 2 og til og med sidste bogstav. Hvis argument 2 er højere end ordets længde skal du give en passende fejlmeddelelse
-     Ex:  Købehavn, 6, 4  skal . give outputtet 'avn'
-     
-     
- ## Task 4.  - print ordet hvis det er et palindrom 
-     1.a Skriv en metode printIfPalindrome() som tager en tekststreng som argument og printer den HVIS den kan skrives bagfra uden at ændre sig. (Hint: Lad dig inspirere i dokumentationen for String klassen)
-     1.b Sørg for at metoden ikke er case-sensitiv.
-     1.c Kald metoden fra main med argumentet "Den laks skal ned", for at teste den.
-        
-       
+printWordsWithLessThanTwoVocals(); 
+
+## Task 2: 
+Create a method called printFirstHalfOfEachWord() that uses substring to print the first half of all words in the ```text``` variable. 
+
+Hints: 
+- Use the .substring() method along with the s.length
+
+
+## Task 3: 
+Create a method called printMostFrequentLetter() that prints the most frequent found letter in the ```text``` variable. 
+
+The method must print both the actual letter as well as the times it occurred. 
+
+Bonus for printing a top 10. 
+
+
+## Task 4: 
+Exactly the same as task 3 - but instead of _most_ frequent, then _less_ frequent. 
+So create a method called printLessFrequentLetter(). 
+
+again - bonus for printing top 10. 
+
+
+[NOT TO BE HANDED IN] 
+## Task 5: 
+
+Get started on your "Cheat-sheet-project" (Exam preperation) as we talked about yesterday. 
+
+- Start a new project in intelliJ called something along the line of "DAT1-Java-CheatSheet"
+- Create a new package by right-clicking the "src" directory -> new -> Package. Call it "Loops"
+- Add a class to this new package, by right-clicking -> new -> Java Class, and call it "ForLoopsExamples"
+- In the LoopsExamples class, create a method that runs a for loop from 0 to 100, printing all numbers.
+- Add another method, that using a for loop prints all even numbers between 0 and 100. 
+
+This project is not mandatory, but I encourage you to work on it individually. 
+Not only will it be great help for you at the exams, but it will also help you structuring all you have learned, along with refining your skills. 
+
+You are solely responsiple for the further development of this project. 
+You should not hand in this last task. 
+
+
